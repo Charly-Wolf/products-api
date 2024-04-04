@@ -2,6 +2,7 @@ require('dotenv').config()
 require('express-async-errors')
 
 const express = require('express')
+const cors = require('cors')
 const app = express()
 
 const connectDB = require('./db/connect')
@@ -10,8 +11,13 @@ const productsRouter = require('./routes/products')
 const notFoundMiddleware = require('./middleware/not-found')
 const errorMiddleware = require('./middleware/error-handler')
 
+const corsOptions = require('./middleware/corsConfig')
+
 // middleware
 app.use(express.json())
+
+// Enable CORS using imported configuration
+app.use(cors(corsOptions))
 
 // routes
 app.get('/', (req, res) => {
@@ -24,7 +30,7 @@ app.use('/api/v1/products', productsRouter)
 app.use(notFoundMiddleware)
 app.use(errorMiddleware)
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 5000
 
 const start = async () => {
   try {

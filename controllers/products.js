@@ -38,7 +38,7 @@ const getAllProducts = async (req, res) => {
     const sortList = sort.split(',').join(' ')
     result = result.sort(sortList)
   } else {
-    result = result.sort('title')
+    result = result.collation({ locale: 'en' }).sort('title') // case insensitive
   }
 
   if (fields) {
