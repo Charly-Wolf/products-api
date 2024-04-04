@@ -17,7 +17,7 @@ const corsOptions = require('./middleware/corsConfig')
 app.use(express.json())
 
 // Enable CORS using imported configuration
-// app.use(cors(corsOptions))
+app.use(cors(corsOptions))
 
 // routes
 app.get('/', (req, res) => {
