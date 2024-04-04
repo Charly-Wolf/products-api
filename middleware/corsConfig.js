@@ -1,5 +1,5 @@
 const corsOptions = {
-  origin: 'http://localhost:5',
+  origin: process.env.FRONTEND_PORT,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }
