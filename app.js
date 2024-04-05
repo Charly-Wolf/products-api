@@ -21,7 +21,7 @@ app.use(cors(corsOptions))
 
 // routes
 app.get('/', (req, res) => {
-  res.send('<h1>Products API 1.01</h1><a href="/api/v1/products">Products route</a>')
+  res.send('<h1>Products API 1.02</h1><a href="/api/v1/products">Products route</a>')
 })
 
 app.use('/api/v1/products', productsRouter)
