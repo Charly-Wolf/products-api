@@ -31,6 +31,9 @@ const getAllProducts = async (req, res) => {
     })
   }
 
+  console.log(`Request: ${req.method} ${req.url}`)
+  console.log(`Query: ${JSON.stringify(req.query)}`) // More detailed query logging
+
   let result = Product.find(queryObject)
 
   // sort
